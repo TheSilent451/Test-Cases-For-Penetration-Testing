@@ -1,0 +1,224 @@
+
+Basic Test cases
+1. Positive Login Page Test Cases
+
+Positive test cases are testing if the Login page functions as expected under valid inputs. These test cases explore scenarios where users do what they are supposed to do, such as:
+
+Valid username and password combination successfully logs the user in.
+Testing with the minimum allowed username and password length.
+Testing with a username and password containing alphanumeric characters.
+Successful login with the "Remember Me" option selected.
+Testing login with a username that contains both uppercase and lowercase characters.
+Successful login using a valid email address as the username.
+Successful login using a valid phone number as the username.
+Successful login with multi-factor authentication (MFA) enabled.
+Testing login with a username that includes special characters (e.g., @, #, $).
+Successful login using social media accounts (if applicable).
+Successful login using biometric authentication (e.g., fingerprint, face recognition).
+Testing login after a password reset to ensure the new password works.
+Successful login after an account recovery process.
+Successful login with localization settings (testing with different languages).
+Testing login with different browsers (e.g., Chrome, Firefox, Edge).
+
+2. Negative Login Page Test Cases
+
+Negative testing for the Login page are testing if the Users don’t always do what we want them to do. Sometimes they do unexpected things, and a good tester understands that unpredictability to test accordingly. Some common negative test cases you should test on your Login page include:
+
+​​Entering an incorrect password for a valid username.
+Entering an incorrect username for a valid password.
+Entering an empty username field.
+Entering an empty password field.
+Entering a username that does not exist in the system.
+Entering a password that does not meet password strength requirements.
+Testing login with excessive length usernames and passwords.
+Testing login with incorrect case (uppercase/lowercase) in the username.
+Testing login with expired or deactivated user accounts.
+Testing login with suspended user accounts.
+Multiple consecutive failed login attempts triggering an account lockout.
+Testing login after the session has expired due to inactivity.
+Testing login with incorrect multi-factor authentication (MFA) codes.
+Entering invalid characters (e.g., scripts) in the username or password fields.
+Testing login with CAPTCHA validation failure.
+
+With negative testing, you have to be creative. The more complex your login and authentication process is, the more test cases you will need to perform. Put yourself in the shoes of a user who has never interacted with the system before. Be a person that makes mistakes all the time and simply think of all the “bad” possibilities that can happen in your system, or specifically your Login page.
+
+
+3. Security Test Cases For Login Page
+The Login page is considered to be the first layer of security for many systems. Its role is primarily for access control and user authentication. Through this page, developers can have a better control of what data users get to access.   
+
+For example, 
+// In membership sites, the Login page can be the “gate” separating subscribers and non-subscribers. Team members have a separate Login page where they can type in their credentials to access the system’s backend. That’s why security testing for the Login page is especially important.
+
+// Usually security testing are performed in-house, but sometimes an external security testing team can also be requested to come in and launch an authorized attack on the system to identify vulnerabilities, which is usually known as penetration testing.
+ 
+Security test cases for the Login page:
+
+Test for SQL injection vulnerabilities by attempting to inject SQL code into username and password fields.
+Test for Cross-Site Scripting (XSS) vulnerabilities by entering script tags in the login fields.
+Verify that the login page uses HTTPS to encrypt data transmission.
+Test for session fixation vulnerabilities by attempting to hijack a user's session.
+Verify that user passwords are securely hashed and salted in the database.
+Test for clickjacking vulnerabilities by attempting to overlay the login page with malicious content.
+Check for brute force attack protection mechanisms (account lockout, rate limiting).
+Verify that the login page does not reveal whether a username exists in the system.
+Test for user enumeration vulnerabilities by attempting to determine if a username exists.
+Verify that session tokens and cookies are securely generated and stored.
+Test the security of password reset and account recovery processes.
+Evaluate the login page's resistance to DDoS attacks.
+Test for insecure password policies (e.g., weak password requirements).
+Verify that error messages do not provide too much information about the failure (e.g., "Invalid username" instead of "Invalid username and password").
+Evaluate the system's compliance with relevant security standards (e.g., OWASP Top Ten).
+
+4. How to test SQL Injection on Login Page
+SQL Injection is when malicious SQL code is inserted into input fields or data inputs of a web application to destroy your database. This is one of the most common web hacking techniques currently, although it has been around for more than 2 decades.   
+
+Here are several SQL injection test cases you can try on your Login page:  
+ 
+
+1=1 quotes: In the username and password fields, try entering single quotes (' or '1=1) to see if the application is vulnerable to SQL Injection. The '1=1' part is a common SQL Injection payload that often returns true, effectively bypassing the login.
+Union-Based SQL Injection: In the username or password field, try using a UNION SELECT statement to see if you can extract data from the database. For example, you might enter something like ' UNION SELECT username, password FROM users--.
+Error-Based SQL Injection: Try entering input that you know will trigger an SQL error. For instance, ' OR 1=1; -- should be handled gracefully without revealing database error messages. If the application displays detailed SQL errors, it might be vulnerable.
+Time-Based Blind SQL Injection: Test for blind SQL Injection by using time-based payloads. For example, ' OR IF(1=1, SLEEP(5), 0); --. If the login delay is noticeable when this payload is used, it may indicate a blind SQL Injection vulnerability.
+Input Encoding: Attempt to bypass input validation by encoding SQL Injection payloads. For example, try URL encoding, HTML encoding, or double URL encoding of payloads.
+Consult OWASP: Refer to the OWASP (Open Web Application Security Project) guidelines and testing methodologies for comprehensive SQL Injection testing strategies.
+
+5. Gmail Login Page Test Cases
+Test cases for Gmail Login page is similar to any other types of Login page:
+
+Verify that the Gmail login page is accessible from the Gmail homepage.
+Test login with valid Gmail account credentials.
+Test login with an incorrect Gmail account password.
+Test login with an incorrect Gmail account username/email.
+Test login with a Gmail account that has two-factor authentication (2FA) enabled.
+Verify that the "Stay signed in" option works as expected on Gmail's login page.
+Test the "Forgot password?" link for password recovery functionality.
+Test login using Google's "Sign in with Google" option (if available).
+Verify that the Gmail login page supports multiple languages.
+Test the login page's responsiveness on various devices (desktop, mobile, tablet).
+Check for security features like CAPTCHA or anti-bot mechanisms.
+Test the Gmail login page's performance during peak usage times.
+Verify that session management on Gmail's login page is secure.
+Test the login page's behavior when JavaScript is disabled.
+Test the behavior of the "Create account" link for new Gmail account registration.
+Read More: 100 Test Cases For Registration Page
+
+6. Test Cases For Login Page on Mobile Application
+test cases for mobile Login page
+
+Test the login page's layout and elements on different mobile devices (e.g., phones, tablets).
+Verify that the mobile app's login page supports both portrait and landscape orientations.
+Test login with valid credentials on the mobile app's login page.
+Test login with incorrect credentials on the mobile app's login page.
+Test login with special characters and symbols in the username and password fields.
+Test the "Forgot password?" functionality on the mobile app's login page.
+Verify that the mobile app's login page is responsive to various screen sizes.
+Test the behavior of the "Remember Me" option on the mobile app's login page.
+Test the behavior of the "Stay signed in" option on the mobile app's login page.
+Test login with multi-factor authentication (MFA) on the mobile app's login page.
+Verify that the mobile app's login page integrates with the device's biometric authentication (e.g., fingerprint, face recognition).
+Test the performance of the mobile app's login page on different mobile networks (3G, 4G, Wi-Fi).
+Test the mobile app's login page with different versions of the mobile operating system (e.g., Android, iOS).
+Verify that the mobile app's login page functions correctly when the device is in airplane mode.
+Test the behavior of the mobile app's login page when the device has limited storage space.
+Read More:  Top API Test Cases You Should Test
+
+7. BDD Test Cases For Login Page
+bdd test cases for login page
+
+BDD testing is just an approach where testers write test cases in simple language (usually Gherkin) that even people without technical expertise can understand. Usually a BDD test case is structured in 3 statements:  
+ 
+
+The Given statement sets up the initial context for the behavior and defines the starting point of the system.
+The When statement describes the trigger that brings about a change or behavior in the system.
+The Then statement defines the expected outcome that should be observed after the event mentioned in the When statement.
+Here are 15 test cases for Login page written in Gherkin format:
+
+Test Case 1: Successful Login
+
+Given a valid username and password,
+
+When I attempt to log in,
+
+Then I should be successfully logged into the system.  
+ 
+
+Test Case 2: Invalid Password
+
+Given an invalid password for a valid username,
+
+When I attempt to log in,
+
+Then I should see an error message indicating the incorrect password.  
+ 
+
+Test Case 3: Empty Username Field
+
+Given an empty username field,
+
+When I attempt to log in,
+
+Then I should see an error message indicating the username field is required.  
+ 
+
+Test Case 4: Empty Password Field
+
+Given an empty password field,
+
+When I attempt to log in,
+
+Then I should see an error message indicating the password field is required.  
+ 
+
+Test Case 5: Username with Special Characters
+
+Given a username with special characters,
+
+When I attempt to log in,
+
+Then I should successfully log in.  
+ 
+
+Test Case 6: Locked Account
+
+Given a locked account due to multiple failed login attempts,
+
+When I attempt to log in,
+
+Then I should see an error message indicating that my account is locked.  
+ 
+
+Test Case 7: Remember Me Option
+
+Given a valid username and password with "Remember Me" selected,
+
+When I log in,
+
+Then I should remain logged in across sessions.  
+ 
+
+Test Case 8: Multi-Factor Authentication (MFA)
+
+Given a valid username and password with multi-factor authentication (MFA) enabled,
+
+When I log in,
+
+Then I should be prompted to enter an authentication code.  
+ 
+
+Test Case 9: Password Reset Request
+
+Given a password reset request,
+
+When I follow the password reset process,
+
+Then I should be able to set a new password.  
+ 
+
+Test Case 10: Account Recovery Request
+
+Given an account recovery request,
+
+When I follow the account recovery process,
+
+Then I should be able to regain access to my account.  
+ 
